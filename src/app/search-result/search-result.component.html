@@ -1,0 +1,46 @@
+
+<div *ngIf="weatherResult">
+  <div class="col-md-12">
+    <ul class="list-group list-group-horizontal pull-right">
+        <li class="list-group-item"><button type="button" class="btn btn-outline-secondary"
+          (click) ="exportWeather()">Export to pdf</button></li>
+    </ul>
+  </div>
+  <div class="table-responsive">
+    <table class="table" id="print-section">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Time</th>
+          <th scope="col">Weather </th>
+          <th scope="col">Tempreature</th>
+          <th scope="col">Min/Max Tempreature</th>
+          <th scope="col">Pressure</th>
+          <th scope="col">Air Speed</th>
+          <th scope="col">Humidity</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let wrecord of weatherResult; let i = index">
+          <th scope="row">{{i+1}}</th>
+          <td>{{convertDate(wrecord.date)}}
+          </td>
+          <td>
+            <img class="wicon" src="https://openweathermap.org/img/wn/{{wrecord.weather_icon}}@2x.png" />
+            {{wrecord.weather}}
+          </td>
+          <td>{{(wrecord.temp - 273.5).toFixed(2)}} &#8451;</td>
+          <td>{{(wrecord.temp_min - 273.5).toFixed(2)}}/{{(wrecord.temp_max - 273.5).toFixed(2)}}</td>
+          <td>{{wrecord.pressure}}</td>
+          <td>{{wrecord.air_speed}}</td>
+          <td>{{wrecord.humidity}} %</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="blue-border-top">
+  <agm-map [latitude]="lat" [longitude]="lng">
+    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+  </agm-map>
+</div>

@@ -1,0 +1,33 @@
+.search-box {
+  .card-header {
+    display: flow-root;
+    p {
+      text-transform: capitalize;
+      font-size: 21px;
+      font-weight: 500;
+    }
+    button {
+      text-transform: capitalize;
+      font-size: 16px;
+      font-weight: 500;
+    }
+  }
+  input{
+      display: inline-block;
+  }
+  .calender-row{
+      .form-group{
+        // display: inline-block;
+      }
+      .input-group-append {
+        margin-left: -45px;
+        display: inline-block;
+        button{
+            font-size: 22px;
+        }
+    }
+  }
+}
+.search-result{
+  // display: none;
+}

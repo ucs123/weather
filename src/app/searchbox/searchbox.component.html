@@ -1,0 +1,42 @@
+  <div class="search-box">
+    <form>
+      <div class="card-header">
+        <p class="float-left">place & date information</p>
+        <button type="button" class="btn btn-outline-secondary float-right" (click)="weatherHandler($event)">
+          get weather history
+        </button>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item form-group">
+          <div class="form-group row">
+            <label class="col-md-2">city name</label>
+            <p class="col-md-7"><input type="text" class="form-control" [(ngModel)]="cityname" name="cityname"></p>
+          </div>
+
+        </li>
+        <li class="list-group-item calender-row">
+          <div class="form-group row" [formGroup]="formGroup">
+            <label class="col-md-2">Start Date</label>
+            <app-date-time-picker formControlName="activeStartDate" name="activeStartDate" class="col-md-7">
+            </app-date-time-picker>
+          </div>
+        </li>
+        <li class="list-group-item calender-row">
+          <div class="form-group row" [formGroup]="formGroup">
+            <label class="col-md-2">End Date</label>
+            <app-date-time-picker formControlName="activeEndDate" name="activeEndDate" class="col-md-7">
+            </app-date-time-picker>
+          </div>
+        </li>
+      </ul>
+    </form>
+  </div>
+
+  <div class="search-result blue-border-top" *ngIf="weatherData">
+    <app-search-result [wdata]='weatherData'></app-search-result>
+  </div>
+  <div *ngIf="wloader" style="text-align: center">
+    <div class="spinner-border" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>

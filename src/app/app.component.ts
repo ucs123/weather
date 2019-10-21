@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'weatherngapp';
+  logo_url = './assets/img/logo.png';
 }
