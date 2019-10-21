@@ -26,7 +26,7 @@ import { SearchResultComponent } from './search-result/search-result.component';
     BrowserModule,
     HttpClientModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyC-89J6pXr7nwfE59U82ewsyZu3U8wjpBg'
+      apiKey: 'yourapikey'
     })
   ],
   providers: [],
